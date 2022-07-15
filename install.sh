@@ -26,7 +26,7 @@ while [ 1 ]; do
       /bin/sleep 0.02
       if [ $(($(date +%s%N | cut -b1-13)-$pulseStart)) -gt $REBOOTPULSEMAXIMUM ]; then
         echo "Your device are shutting down", SHUTDOWN, ", halting Rpi ..."
-        sudo poweroff
+        sudo shutdown now
         exit
       fi
       shutdownSignal=$(cat /sys/class/gpio/gpio$SHUTDOWN/value)
